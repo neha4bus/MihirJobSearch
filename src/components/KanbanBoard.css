@@ -1,0 +1,107 @@
+.kanban-board {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  height: calc(100vh - 180px);
+  overflow-x: auto;
+  background-color: #f8fafc;
+}
+
+.kanban-column {
+  flex: 0 0 320px;
+  display: flex;
+  flex-direction: column;
+  background-color: #f1f5f9;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.column-header {
+  padding: 1rem;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.column-header h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.job-count {
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.column-content {
+  flex: 1;
+  padding: 0.5rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-height: 100px;
+}
+
+.column-content.dragging-over {
+  background-color: #e0e7ff;
+}
+
+.empty-column {
+  padding: 2rem 1rem;
+  text-align: center;
+  color: #94a3b8;
+  font-size: 0.875rem;
+}
+
+.draggable-item {
+  transition: transform 0.2s ease;
+}
+
+.draggable-item.dragging {
+  transform: rotate(3deg);
+  opacity: 0.9;
+}
+
+/* Scrollbar styling */
+.column-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.column-content::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+.column-content::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+.column-content::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .kanban-column {
+    flex: 0 0 280px;
+  }
+}
+
+@media (max-width: 768px) {
+  .kanban-board {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .kanban-column {
+    flex: 1;
+    min-height: 300px;
+  }
+}

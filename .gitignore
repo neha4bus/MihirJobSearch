@@ -1,0 +1,7 @@
+node_modules
+dist
+.DS_Store
+*.log
+
+# Keep jobs-data.json in version control for team collaboration
+# !jobs-data.json is already tracked
